@@ -41,10 +41,7 @@ def save_imgs_to_numpy(finetuned):
             name = "layerObjs/" + layer + "_finetuned"
         else:
             name = "layerObjs/" + layer + "_default"
-<<<<<<< HEAD
         layer_obj = layer_obj.astype(int)
-=======
->>>>>>> 94287ecd343253abe086a077be156a7c04ce978f
         np.save(name, layer_obj)
     print("Numpy objects are ready under: layersObj/")
 
@@ -65,11 +62,8 @@ def download_imgs():
                 + "_" + str(neuron) + "_default.pb.png")
             urllib.request.urlretrieve(name + "_googlenet_default.pb.png", "neuron_catalog/" + layer
                 + "_" + str(neuron) + "_finetuned.pb.png")
-<<<<<<< HEAD
             print("Number of pics: " + str(img_counter))
-=======
     print(img_counter)
->>>>>>> 94287ecd343253abe086a077be156a7c04ce978f
     print("Downloading images has ended!")
 
 
@@ -100,41 +94,24 @@ def avg_colour_for_each_neuron(finetuned):
     np.save("avg_col_by_neuron_for_ea_layer" + postfix, avgs)
 
 def check_avgs():
-<<<<<<< HEAD
     #x = np.load("avg_col_by_neuron_for_ea_layer_default.npy", allow_pickle=True)
     x = np.load("layerObjs/Mixed_5b_Branch_3_b_1x1_act_finetuned.npy")
     print(x.shape)
     print(x[1,1,1,:])
-=======
     x = np.load("avg_col_by_neuron_for_ea_layer_default.npy", allow_pickle=True)
     print(x.shape)
     print(x)
->>>>>>> 94287ecd343253abe086a077be156a7c04ce978f
 
-# TO DO
-# use integers in np arrays
 
-<<<<<<< HEAD
-#check_avgs()
 
-###################################################################################################
-=======
-check_avgs()
->>>>>>> 94287ecd343253abe086a077be156a7c04ce978f
+##################################################################################################
+
 
 # download imgs from ai.reny.hu to local
 #download_imgs()
 
+
 # finetuned imgs to numpy obj (layer by layer)
-<<<<<<< HEAD
-save_imgs_to_numpy(True)
-
-# default imgs to numpy obj
-save_imgs_to_numpy(False)
-
-avg_colour_for_each_neuron(True)
-avg_colour_for_each_neuron(False)
-=======
 #save_imgs_to_numpy(True)
 
 # default imgs to numpy obj
@@ -142,7 +119,3 @@ avg_colour_for_each_neuron(False)
 
 #avg_colour_for_each_neuron(True)
 #avg_colour_for_each_neuron(False)
-
-#avg_colour_for_each_neuron(True)
-#avg_colour_for_each_neuron(False)
->>>>>>> 94287ecd343253abe086a077be156a7c04ce978f
