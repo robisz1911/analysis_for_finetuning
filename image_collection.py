@@ -94,7 +94,7 @@ def avg_colour_for_each_neuron(finetuned):
             green = layer_obj[neuron,:,:,1].mean()
             blue = layer_obj[neuron,:,:,2].mean()
             
-            avg_rgb_colour_for_layer_per_neuron[idx, :] =  np.array([red,green,blue])
+            avg_rgb_colour_for_layer_per_neuron[neuron, :] =  np.array([red,green,blue])
 
         avgs.append(avg_rgb_colour_for_layer_per_neuron)
     np.save("avg_col_by_neuron_for_ea_layer" + postfix, avgs)
