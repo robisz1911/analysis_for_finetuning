@@ -50,10 +50,10 @@ def save_imgs_to_numpy(finetuned):
 
 def download_imgs():
     layers = get_layers()
-
+    path = "https://ai.renyi.hu/visualizing-transfer-learning/lucid/catalogs/celeba_neuron_catalog_"
     img_counter = 0
 
-    for idx, [layer, size] in enumerate(layers):
+    for idx, [layer, size] in tqdm(enumerate(layers)):
         for neuron in range(int(size)):
             name = path + sub_folder_round(idx) + "/" + layer + "-Relu/" + layer + "-Relu" + "_" + str(neuron)
 
@@ -63,8 +63,7 @@ def download_imgs():
                 + "_" + str(neuron) + "_default.pb.png")
             urllib.request.urlretrieve(name + "_googlenet_finetuned.pb.png", "neuron_catalog/" + layer
                 + "_" + str(neuron) + "_finetuned.pb.png")
-            print("Number of pics: " + str(img_counter))
-    print(img_counter)
+    print("Number of pics: " + str(img_counter))
     print("Downloading images has ended!")
 
 
