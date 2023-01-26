@@ -121,9 +121,9 @@ def plot_avg_col():
         plt.plot(range(int(size)), default_green, label='green_d', color='g', linewidth=1)
         plt.plot(range(int(size)), default_blue, label='blue_d', color='b', linewidth=1)
 
-        #plt.plot(range(int(size)), finetuned_red, '-.', label='red_f', color='r', linewidth=2)
-        #plt.plot(range(int(size)), finetuned_green, '-.', label='green_f', color='g', linewidth=2)
-        #plt.plot(range(int(size)), finetuned_blue, '-.', label='blue_f', color='b', linewidth=2)
+        plt.plot(range(int(size)), finetuned_red, '-.', label='red_f', color='r', linewidth=2)
+        plt.plot(range(int(size)), finetuned_green, '-.', label='green_f', color='g', linewidth=2)
+        plt.plot(range(int(size)), finetuned_blue, '-.', label='blue_f', color='b', linewidth=2)
 
         plt.title(layer)
         plt.ylabel('colour_value')
