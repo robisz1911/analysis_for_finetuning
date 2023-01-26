@@ -56,12 +56,12 @@ def download_imgs():
     for idx, [layer, size] in enumerate(layers):
         for neuron in range(int(size)):
             name = path + sub_folder_round(idx) + "/" + layer + "-Relu/" + layer + "-Relu" + "_" + str(neuron)
-            print(name + "_googlenet_default.pb.png")
+
             img_counter += 2
 
             urllib.request.urlretrieve(name + "_googlenet_default.pb.png", "neuron_catalog/" + layer
                 + "_" + str(neuron) + "_default.pb.png")
-            urllib.request.urlretrieve(name + "_googlenet_default.pb.png", "neuron_catalog/" + layer
+            urllib.request.urlretrieve(name + "_googlenet_finetuned.pb.png", "neuron_catalog/" + layer
                 + "_" + str(neuron) + "_finetuned.pb.png")
             print("Number of pics: " + str(img_counter))
     print(img_counter)
@@ -140,18 +140,20 @@ def plot_avg_col():
 
 ##################################################################################################
 
-
 # download imgs from ai.reny.hu to local
-#download_imgs()
-
+download_imgs()
 
 # finetuned imgs to numpy obj (layer by layer)
-#save_imgs_to_numpy(True)
+save_imgs_to_numpy(True)
 
 # default imgs to numpy obj
-#save_imgs_to_numpy(False)
+save_imgs_to_numpy(False)
 
-#avg_colour_for_each_neuron(True)
-#avg_colour_for_each_neuron(False)
+# finetuned
+avg_colour_for_each_neuron(True)
 
+# default
+avg_colour_for_each_neuron(False)
+
+# plot
 plot_avg_col()
